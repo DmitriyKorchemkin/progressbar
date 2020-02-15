@@ -1,6 +1,8 @@
 add_library(progressbar progressbar.c)
 add_library(statusbar statusbar.c)
 
+target_include_directories(progressbar INTERFACE ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(progressbar PRIVATE ${CURSES_LIBRARIES})
 set_target_properties(progressbar PROPERTIES PUBLIC_HEADER
     ${PROJECT_SOURCE_DIR}/include/progressbar/progressbar.h)
 set_target_properties(statusbar PROPERTIES PUBLIC_HEADER
